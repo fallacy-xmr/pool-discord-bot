@@ -1,0 +1,15 @@
+{
+  "name": "pool-discord-bot",
+  "version": "0.0.1",
+  "description": "Mining Pool Discord Bot to announce on new block found",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "request": "^2.88.2"
+  }
+}
