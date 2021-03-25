@@ -13,8 +13,8 @@ function checkAPI() {
 
 			const channel = client.channels.cache.get(config.CHANNEL_ID);
 			// modify these lines to say whatever you want
-			channel.send('New Block Found');
-			channel.send(JSON.stringify(body[0]));
+			channel.send('New Block Found!');
+			channel.send(JSON.stringify(body, [ "hash", "diff", "height", "value" ], 1));
 
 			config.LAST_BLOCK_HASH = body[0].hash;
 			fs.writeFileSync('./config.json', JSON.stringify(config, null, '\t'));
