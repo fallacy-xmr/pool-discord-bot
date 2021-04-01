@@ -12,9 +12,18 @@ function checkAPI() {
 //			console.log('New Block Found: '+body[0].hash);  // uncoment to debug
 
 			const channel = client.channels.cache.get(config.CHANNEL_ID);
-			// modify these lines to say whatever you want
-			channel.send('New Block Found!');
-			channel.send(JSON.stringify(body[0]));
+			
+			embed = new Discord.MessageEmbed()
+				.setTitle('New Block Found!')
+				.setURL('https://xmrchain.net/block/'+newBlock.height)
+				.setColor(0xff6600) //make it monero orange
+//				.setDescription('Informative text to add at start')
+				.addField('Hash', newBlock.hash)
+				.addField('Diff', newBlock.diff)
+				.addField('Height', newBlock.height)
+				.addField('Value', newBlock.value);
+			
+			channel.send(embed);
 
 			config.LAST_BLOCK_HASH = body[0].hash;
 			fs.writeFileSync('./config.json', JSON.stringify(config, null, '\t'));
