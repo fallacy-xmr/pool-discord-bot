@@ -14,11 +14,11 @@ function checkAPI() {
 			const channel = client.channels.cache.get(config.CHANNEL_ID);
 			
 			embed = new Discord.MessageEmbed()
-				.setTitle('New Block Found')
+				.setTitle('New Block Found!')
 				.setURL('https://xmrchain.net/block/'+newBlock.height)
 				.setColor(0xff6600) //make it monero orange
-				.addField('Hash', newBlock.hash)
 //				.setDescription('Informative text to add at start')
+				.addField('Hash', newBlock.hash)
 				.addField('Diff', newBlock.diff)
 				.addField('Height', newBlock.height)
 				.addField('Value', newBlock.value);
