@@ -1,4 +1,4 @@
-console.log('Starting Bot..');
+console.log('Starting Bot..'); // uncomment to debug
 
 const fs = require('fs');
 const request = require('request');
@@ -6,7 +6,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('./config.json');
 
-console.log('Dependancies Loaded..');
+console.log('Dependancies Loaded..'); // uncomment to debug
 
 function checkAPI() {
 	request('https://'+config.API_DOMAIN+'/pool/blocks', { json: true }, (err, res, body) => {
@@ -40,9 +40,9 @@ function checkAPI() {
 }
 
 client.login(config.BOT_TOKEN);
-console.log('Logged in as ${client.user.tag}!'); // uncomment to debug
+console.log('Logged In..'); // uncomment to debug
 
-client.on('ready', () => {
-	console.log('Client Ready..'); // uncomment to debug
-	checkAPI();
-});
+client.on('ready');
+console.log('Client Ready..'); // uncomment to debug
+checkAPI();
+console.log('Checking API..'); // uncomment to debug
