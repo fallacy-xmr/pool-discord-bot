@@ -39,12 +39,11 @@ function checkAPI() {
 	setTimeout(checkAPI, 60000);
 }
 
-client.on('ready', () => {
-console.log('Client Ready..'); // uncomment to debug
-});
+client.login(config.BOT_TOKEN);
+console.log ('Logged In..'); // uncomment to debug
 
-client.login(config.BOT_TOKEN, () => {;
-console.log('Logged In..'); // uncomment to debug
-checkAPI();
-console.log('Checking API..'); // uncomment to debug
+client.on('ready', () => {
+	console.log('Client Ready..'); // uncomment to debug
+	checkAPI();
+	console.log('Checking API..'); // uncomment to debug
 });
