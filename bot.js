@@ -36,7 +36,7 @@ function checkAPI() {
 		
 	});
 	
-	setTimeout(checkAPI, 60000);
+	setTimeout(checkAPI, 120000);
 }
 
 client.login(config.BOT_TOKEN);
