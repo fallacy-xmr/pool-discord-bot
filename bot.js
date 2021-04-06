@@ -42,6 +42,8 @@ function checkAPI() {
 client.login(config.BOT_TOKEN);
 console.log ('Logged In..'); // uncomment to debug
 
+//client.on('debug', console.log); // uncomment to debug
+
 client.on('ready', () => {
 	console.log('Client Ready..'); // uncomment to debug
 	checkAPI();
