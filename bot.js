@@ -19,13 +19,13 @@ function checkAPI() {
 			
 			embed = new Discord.MessageEmbed()
 				.setTitle('New Block Found!')
-				.setURL('https://xmrchain.net/block/'+newBlock.height)
+				.setURL('https://xmrchain.net/block/'+body[0].height)
 				.setColor(0xff6600) //make it monero orange
 //				.setDescription('Informative text to add at start')
-				.addField('Hash', newBlock.hash)
-				.addField('Diff', newBlock.diff)
-				.addField('Height', newBlock.height)
-				.addField('Value', newBlock.value);
+				.addField('Hash', body[0].hash)
+				.addField('Diff', body[0].diff)
+				.addField('Height', body[0].height)
+				.addField('Value', body[0].value);
 			
 			channel.send(embed);
 
