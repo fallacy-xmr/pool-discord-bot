@@ -10,7 +10,8 @@ function checkAPI() {
 	
 		if (body[0].hash != config.LAST_BLOCK_HASH) {
 //			console.log('New Block Found: '+body[0].hash);  // uncoment to debug
-
+			newBlock = body[0];
+			
 			const channel = client.channels.cache.get(config.CHANNEL_ID);
 			
 			embed = new Discord.MessageEmbed()
