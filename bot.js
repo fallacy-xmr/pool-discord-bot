@@ -32,7 +32,7 @@ function checkAPI() {
 		
 	});
 	
-	setTimeout(checkAPI, 60000);
+	setTimeout(checkAPI, 120000);
 }
 
 
