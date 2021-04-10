@@ -8,7 +8,7 @@ function checkAPI() {
 	request('https://'+config.API_DOMAIN+'/pool/blocks', { json: true }, (err, res, body) => {
 		if (err) { return console.log(err); }
 	
-		if (body[0].hash != config.LAST_BLOCK_HASH) {
+		if ((typeof body[0].hash !== 'undefined') && (body[0].hash != config.LAST_BLOCK_HASH)) {
 //			console.log('New Block Found: '+body[0].hash);  // uncoment to debug
 			newBlock = body[0];
 			
@@ -33,7 +33,7 @@ function checkAPI() {
 		
 	});
 	
-	setTimeout(checkAPI, 120000);
+	setTimeout(checkAPI, config.CHECK_INTERVAL || 120000);
 }
 
 
