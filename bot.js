@@ -33,7 +33,7 @@ function checkAPI() {
 		
 	});
 	
-	setTimeout(checkAPI, 60000);
+	setTimeout(checkAPI, config.CHECK_INTERVAL || 60000);
 }
 
 
