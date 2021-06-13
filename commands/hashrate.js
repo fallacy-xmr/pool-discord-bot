@@ -29,7 +29,6 @@ module.exports = {
 			if (error) {
 				message.channel.send(message.author.toString()+' Sorry! There was an error getting your hashrate.');
 			} else {
-				//console.log(xmraddr);
 				api.getHashrate(xmraddr, function(hashrate) {
 					msg = message.author.toString()+' is crunching '+
 					nFormatter(hashrate, 2)+'H/s. Awesome!';
@@ -39,10 +38,3 @@ module.exports = {
 		});
 	}
 };
-
-/*
-
-    msg.reply('Pong!');
-	message.channel.send('Pong.');
-
-*/
