@@ -1,10 +1,12 @@
+const config = require("../config.json");
+
 module.exports = {
 	name: 'link',
 	description: 'Link your wallet address to your Discord account.',
 	execute(message, args, db) {
 		if(message.channel.type === "dm") {
 			if (args.length != 1) {
-				message.reply('Proper syntax is: `!link address`');
+				message.reply('Proper syntax is: `'+config.PREFIX+'link address`');
 			} else if (args[0].length == 95) {
 				db.createLink(message.author.id, args[0], function(error) {
 					if (error) {
