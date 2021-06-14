@@ -6,7 +6,7 @@ module.exports = {
 	execute(message, args, db) {
 		if(message.channel.type === "dm") {
 			if (args.length != 1) {
-				message.reply('Proper syntax is: `'+config.PREFIX+'link address`');
+				message.reply('Proper syntax is: `'+config.PREFIX+'link <address>`');
 			} else if (args[0].length == 95) {
 				db.createLink(message.author.id, args[0], function(error) {
 					if (error) {
@@ -19,6 +19,7 @@ module.exports = {
 				message.reply('XMR Wallet Addresses should be 95 characters.');
 			}
 		} else {
+			message.delete({ reason: 'That command can only be used in a DM.' });
 			message.channel.send(message.author.toString()+' That command can only be used in a DM.');
 		}
 	}
