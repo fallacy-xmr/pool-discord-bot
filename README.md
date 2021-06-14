@@ -5,7 +5,7 @@ Created for MONEROMINEco by fallacy
 
 Requirements:
 
-Nodejs >= v8.3.0
+Nodejs >= v12
 
 Install:
 
