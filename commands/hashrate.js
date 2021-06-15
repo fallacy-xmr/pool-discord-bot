@@ -1,3 +1,4 @@
+const affirmations = require("../affirmations.json");
 const api = require('../lib/api.js');
 
 /*  Formatting code by Salman A
@@ -31,7 +32,8 @@ module.exports = {
 			} else {
 				api.getHashrate(xmraddr, function(hashrate) {
 					msg = message.author.toString()+' is crunching '+
-					nFormatter(hashrate, 2)+'H/s. Awesome!';
+					nFormatter(hashrate, 2)+'H/s. '+
+					affirmations[Math.floor(Math.random()*affirmations.length)]+'!';
 					message.channel.send(msg);
 				});
 			}
