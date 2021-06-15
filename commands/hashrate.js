@@ -30,12 +30,27 @@ module.exports = {
 			if (error) {
 				message.channel.send(message.author.toString()+' Sorry! There was an error getting your hashrate.');
 			} else {
-				api.getHashrate(xmraddr, function(hashrate) {
-					msg = message.author.toString()+' is crunching '+
-					nFormatter(hashrate, 2)+'H/s. '+
-					affirmations[Math.floor(Math.random()*affirmations.length)]+'!';
-					message.channel.send(msg);
-				});
+				if ((args.length == 1) && (args[0] == 'average')) {
+
+					// Get average hashrate
+					api.getAvgHashrate(xmraddr, function(hashrate) {
+						msg = message.author.toString()+' is averaging '+
+						nFormatter(hashrate, 2)+'H/s in the last 24 hours. '+
+						affirmations[Math.floor(Math.random()*affirmations.length)]+'!';
+						message.channel.send(msg);
+					});
+
+				} else {
+
+					// Get current hashrate
+					api.getHashrate(xmraddr, function(hashrate) {
+						msg = message.author.toString()+' is crunching '+
+						nFormatter(hashrate, 2)+'H/s. '+
+						affirmations[Math.floor(Math.random()*affirmations.length)]+'!';
+						message.channel.send(msg);
+					});
+
+				}
 			}
 		});
 	}
